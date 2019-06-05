@@ -1,0 +1,25 @@
+{
+  "name": "@paul90/wiki-plugin-dagre",
+  "version": "19.05.21",
+  "description": "Federated Wiki - Dagre Plugin",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "dagre.js",
+    "wiki",
+    "federated wiki",
+    "plugin",
+    "experimental"
+  ],
+  "author": "Paul Rodwell <paul.rodwell@btinternet.com> (https://rodwell.me)",
+  "contributors": [
+    "Eric Dobbs <eric@dobbse.net>",
+    "Ward Cunningham <ward@c2.com>"
+  ],
+  "license": "MIT",
+  "private": true
+}
