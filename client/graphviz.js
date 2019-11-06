@@ -17,12 +17,15 @@
       let slug = m[1]
       let page = $item.parents('.page').data('data')
       let poly = await polyget({ name: slug, site, page })
+      console.log('aa', page, poly.page)
       if (page = poly.page) {
-        let redirect = page.story.find(each => each.type == 'dagre')
+        let redirect = page.story.find(each => each.type == 'dagre') || page.story.find(each => each.type == 'graphviz')
+        console.log('redir', redirect)
         if (redirect) {
           text = redirect.text
         }
       }
+      console.log('bb', text, item.text)
       if (text == item.text) {
         return trouble("can't do", item.text)
       }

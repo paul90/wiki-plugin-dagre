@@ -27,7 +27,6 @@ template.innerHTML = `
     .node ellipse {
       stroke: #333;
       fill: #fff;
-      stroke-width: 1.5px;
     }
 
     .cluster rect {
@@ -83,11 +82,18 @@ class DagreViewer extends HTMLElement {
             }
 
             try {
+              console.log("g", g)
               var tg = new dagreD3.graphlib.Graph({ directed: true, compound: true, multigraph: true })
-                .setGraph({ rankdir: 'LR' })
+                .setGraph({ rankdir: g._label['rankdir'], 
+                            nodesep: 30,
+                            ranksep: 30,
+                            marginx: 10,
+                            marginy: 10
+                          })
 
               var nodes = g.nodes()
               var edges = g.edges()
+              //var groups = g.groups()
 
               nodes.forEach(function (node) {
                 var nodeLabel = g._nodes[node]
@@ -98,6 +104,8 @@ class DagreViewer extends HTMLElement {
               edges.forEach(function (edge) {
                 tg.setEdge(edge.v, edge.w, { curve: d3.curveBasis })
               })
+
+              console.log("tg", tg)
 
               d3.select(self.shadowRoot)
                 .append('svg:svg')
